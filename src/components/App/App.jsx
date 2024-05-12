@@ -32,11 +32,15 @@ function App() {
   });
   console.log(contacts);
 
+  const addContact = contact => {
+    setContacts(prev => [...prev, contact]);
+  }
+
   return (
     <>
       <div>
         <h1>Phonebook</h1>
-        <ContactForm contacts={contacts} setContacts={setContacts} />
+        <ContactForm contacts={contacts} setContacts={setContacts} addContact={addContact}/>
         <SearchBox value={inputValue} onInput={setInputValue} />
         <ContactList contacts={searchByName} onDelete={handleDelete} />
       </div>

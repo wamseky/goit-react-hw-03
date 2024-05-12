@@ -20,12 +20,12 @@ const initialValues = {
   number: '',
 };
 
-export default function ContactForm({ contacts, setContacts }) {
+export default function ContactForm({ addContact }) {
   const nameFieldId = useId();
   const telFieldId = useId();
 
   const handleSubmit = (values, actions) => {
-    setContacts([...contacts, { ...values, id: nanoid() }]);
+    addContact({ id: nanoid(), ...values });
     console.log(values);
     actions.resetForm();
   };
